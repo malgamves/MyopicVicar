@@ -31,6 +31,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="76x76" href="<%= path_to_image 'png/apple-touch-icon-76x76-precomposed.png' %>">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= path_to_image 'png/apple-touch-icon-72x72-precomposed.png' %>">
     <link rel="apple-touch-icon-precomposed" href="<%= path_to_image 'png/apple-touch-icon-precomposed.png' %>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript">
       /* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
       window.grunticon = function(e) {
@@ -73,7 +74,7 @@
      <%= csrf_meta_tags %>
 
   </head>
-  <body ontouchstart class="offcanvas  offcanvas--rev">
+  <body ontouchstart class="offcanvas  offcanvas--rev <%= controller_name %> <%= action_name %>">
     
     <%= render "layouts/main_nav" %>
     

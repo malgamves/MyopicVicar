@@ -23,6 +23,7 @@
         </th>
         <% unless print_friendly %>
         <th>Detail</th>
+        <th> Report a Problem </th>
         <% end %>
       </tr>
     </thead>
@@ -57,6 +58,9 @@
             <td>
               <%= link_to("Row #{n}", search_record_path(search_record.id, :search_id => @search_query, :ucf => ucf_results), :title => "As available for this record") %> 
               <i><%= viewed(@search_query,search_record) %></i>
+            </td>
+            <td>
+              <%= link_to '<i class="fa fa-bullhorn" style="font-size:25px;color:#428bca;"></i>'.html_safe, report_error_contact_path(search_record.id, :query => @search_query) %>
             </td>
           <% end %>
         </tr>

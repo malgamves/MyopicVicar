@@ -5,6 +5,33 @@
 <p>
   <%= @contact.body %>
 </p>
+<h4>Below are the further details of the data:</h4>
+<table border="1">
+  <tr>
+    <th>Main Participant(s)</th>
+    <th>Record Type</th>
+    <th>Event Date</th>
+    <th>County</th>
+    <th>Place : Church : Register Type</th>
+  </tr>
+  <% search_record = SearchRecord.where(id: @contact.record_id).first %>
+  <tr>
+    <td>
+    <% search_record[:transcript_names].uniq.each_with_index do |name, i| %>
+      <% if  name['type'] == 'primary' %>
+        <% if i > 0 %>
+        <br />
+        <% end%>
+      <%= "#{name['first_name']} #{name['last_name']} " %>
+      <% end %>
+    <% end%>
+    </td>
+    <td><%= RecordType::display_name(search_record.record_type)%></td>
+    <td><%= raw(search_record.transcript_dates.first.gsub(' ', '&nbsp;')) unless search_record.transcript_dates.empty?%></td>
+    <td><%= county(search_record)%></td>
+    <td><%= format_location(search_record)%></td>
+  </tr>
+</table>
 <p>
 <% if @contact.screenshot_url.present?%>
  <p>An image is attached</p>

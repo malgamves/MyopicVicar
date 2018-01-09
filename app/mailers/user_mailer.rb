@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-
+  add_template_helper(SearchQueriesHelper)
   default from: "freereg-contacts@freereg.org.uk"
 
   def batch_processing_failure(message,user,batch)
