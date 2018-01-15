@@ -12,7 +12,7 @@
         <%if @display_date%>
           <span class="additional"> search made on <%=Time.now.strftime("%d %b %Y") %></span><br>
         <% else%>
-          <span class="additional"> <%= link_to "Link for reporting error in transcription", report_error_contact_path(@search_record[:_id], :query => @search_query) %> </span> 
+        <span class="additional"><%= link_to "Report an Error in Transcription", report_error_contact_path(@search_record[:_id], :query => @search_query), class: "btn weight--light btn--small"%></span>
         <% end%> 
       </caption>
       <colgroup>
@@ -69,6 +69,9 @@
     </table>
   <% end %>
   <div class="read-length push--bottom" style="margin-left: auto; margin-right: auto;">
+    <span class="additional">
+      <%= link_to "Report an Error in Transcription", report_error_contact_path(@search_record[:_id], :query => @search_query), class: "btn weight--light btn--small"%>
+    </span>
     <% unless defined?(@printable_format) && @printable_format %>
       <center><a href="http://www.freeukgenealogy.org.uk/about/help-us-keep-history-free" class="freeREG" id="donate"><%= DonateIconHelper::DONATE_ICON.html_safe %></a></center>
       <p class="push-half--bottom">While most other genealogy sites charge you to find and read records, <b style= "color: #009f98">FreeReg</b> is dedicated to keeping our searches free. A small donation towards our costs would really help us keep it that way. </p>
