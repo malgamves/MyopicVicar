@@ -23,7 +23,7 @@
         </th>
         <% unless print_friendly %>
         <th>Detail</th>
-        <th> Report a Problem </th>
+        <th> Report a<br />Problem </th>
         <% end %>
       </tr>
     </thead>
@@ -60,7 +60,7 @@
               <i><%= viewed(@search_query,search_record) %></i>
             </td>
             <td>
-              <%= link_to '<i class="fa fa-bullhorn" style="font-size:25px;color:#428bca;"></i>'.html_safe, report_error_contact_path(search_record.id, :query => @search_query) %>
+              <%= link_to '<i class="fa fa-bullhorn" style="font-size:25px;color:#428bca;"></i>'.html_safe, report_error_contact_path(search_record.id, :query => @search_query), :title => "Report an Error in Transcription" %>
             </td>
           <% end %>
         </tr>

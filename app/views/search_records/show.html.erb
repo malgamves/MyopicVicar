@@ -70,7 +70,7 @@
   <% end %>
   <div class="read-length push--bottom" style="margin-left: auto; margin-right: auto;">
     <span class="additional">
-      <%= link_to "Report an Error in Transcription", report_error_contact_path(@search_record[:_id], :query => @search_query), class: "btn weight--light btn--small"%>
+      <%= link_to "Report an Error in Transcription", report_error_contact_path(@search_record[:_id], :query => @search_query), class: "btn weight--light btn--natural"%>
     </span>
     <% unless defined?(@printable_format) && @printable_format %>
       <center><a href="https://www.freeukgenealogy.org.uk/help-us-keep-history-free/" class="freeREG" id="donate"><%= DonateIconHelper::DONATE_ICON.html_safe %></a></center>
